@@ -22,7 +22,6 @@ function addMarker(myPos,myTitle,myInfo) { // Determines the marker icon design 
 infowindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
 	google.maps.event.addListener (marker, 'click', function() { // The text is viewed once the marker is clicked.
 	infowindow.open(map, this); // When a separate marker is clicked, the previous infowindow disappears.
-	drawInfoChart(map, marker);
 })
 }
 
@@ -50,12 +49,10 @@ function drawInfoChart (map, marker) {
         };
 		
 	    var myInfo = document.createElement('infograph_div'),
-			infoWindow = new google.maps.InfoWindow(),
 			chart = new google.visualization.LineChart(myInfo);
 
 		chart.draw(data, options);
 		infoWindow.setContent(myInfo);
-		infoWindow.open(map, marker);
 }
  
 function addPolya(polyPatha,myInfo,line_colour,fillvalue) { // Polygon style choices.
