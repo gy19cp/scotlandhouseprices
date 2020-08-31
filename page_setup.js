@@ -6,16 +6,16 @@ var map; // Define the Map object.
 var myCentreLat = 56.974924; // Starting Latitude position. Majority of markers can be viewed with these specifications. 
 var myCentreLng = -4.592285; // Starting Longitude position. 
 var initialZoom = 7; // Initial Zoom factor. 
-var infowindow; // Global variable.
+var infoWindow; // Global variable.
 
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawInfoChart);
 
-infowindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
+infoWindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
 	google.maps.event.addListener (marker, 'click', function() { // The text is viewed once the marker is clicked.
-	infowindow.open(map, this); // When a separate marker is clicked, the previous infowindow disappears.
+	infoWindow.open(map, this); // When a separate marker is clicked, the previous infowindow disappears.
 })
 }
 
@@ -27,7 +27,7 @@ function addMarker(myPos,myTitle,myInfo) { // Determines the marker icon design 
 	   icon: 'condominium.png' // Determines icon used for the marker.
 });
 
-function drawInfoChart (map, marker, infowindow) {	
+function drawInfoChart (map, marker, infoWindow) {	
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Aberdeenshire', 'Angus', 'Argyll and Bute', 'City of Aberdeen', 'City of Dundee', 'City of Edinburgh', 'City of Glasgow', 'Clackmannanshire', 'Western Isles', 'Dumfries and Galloway', 'East Ayrshire', 'East Dunbartonshire', 'East Lothian', 'East Renfrewshire', 'Falkirk', 'Fife', ' Highland', 'Inverclyde', 'Midlothian', 'Moray', 'North Ayrshire', 'North Lanarkshire', 'Orkney Islands', 'Perth and Kinross', 'Renfrewshire', 'Scottish Borders', 'Shetland Islands', 'South Lanarkshire', 'South Ayrshire', 'Stirling', 'West Dunbartonshire', 'West Lothian'],
 		  ['2010',  177281,      	132132,		134357,				161901,				111341, 			212508,				109989,				112767,				183001,				130134,					93691,			176528,				182179,				184732,			105523,	113485,		148878,		107758,			145897,		131750,		103802,				95334,				108495,				169295, 		113391, 		141127, 				103691, 		112353,					183148,		160185,			99762,				133804],
