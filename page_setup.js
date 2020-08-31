@@ -3,10 +3,11 @@
 
 // MAP 
 var map; // Define the Map object.
+var infowindow; // Global variable.
 var myCentreLat = 56.974924; // Starting Latitude position. Majority of markers can be viewed with these specifications. 
 var myCentreLng = -4.592285; // Starting Longitude position. 
 var initialZoom = 7; // Initial Zoom factor. 
-var infowindow; // Global variable.
+
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -20,7 +21,7 @@ function addMarker(myPos,myTitle,myInfo) { // Determines the marker icon design 
 	   icon: 'condominium.png' // Determines icon used for the marker.
 });
 
-var infowindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
+infowindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
 	google.maps.event.addListener (marker, 'click', function() { // The text is viewed once the marker is clicked.
 	infowindow.open(map, this); // When a separate marker is clicked, the previous infowindow disappears.
 })
