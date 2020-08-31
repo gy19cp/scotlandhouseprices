@@ -20,10 +20,8 @@ function addMarker(myPos,myTitle,myInfo) { // Determines the marker icon design 
 	   title: myTitle,
 	   icon: 'condominium.png' // Determines icon used for the marker.
 });
-
-    infoWindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
+   infoWindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
     google.maps.event.addListener (marker, 'click', function() { // The text is viewed once the marker is clicked. 
-    infowindow.setContent(myInfo);
     infoWindow.open(map, this); // When a separate marker is clicked, the previous infowindow disappears.
 })
 }
@@ -57,7 +55,7 @@ function drawInfoChart (map, marker) {
 		chart.draw(data, options);
 		infoWindow.setContent(myInfo);
 }
- 
+
 function addPolya(polyPatha,myInfo,line_colour,fillvalue) { // Polygon style choices.
 	myPolya = new google.maps.Polygon({
 		paths: polyPatha,
