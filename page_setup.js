@@ -8,16 +8,10 @@ var myCentreLng = -4.592285; // Starting Longitude position.
 var initialZoom = 7; // Initial Zoom factor. 
 var infoWindow; // Global variable.
 
-
+var google;
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawInfoChart);
-
-infoWindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
-	google.maps.event.addListener (marker, 'click', function() { // The text is viewed once the marker is clicked.
-	infoWindow.open(map, this); // When a separate marker is clicked, the previous infowindow disappears.
-})
-}
 
 function addMarker(myPos,myTitle,myInfo) { // Determines the marker icon design and location.
    var marker = new google.maps.Marker({ 
@@ -26,6 +20,13 @@ function addMarker(myPos,myTitle,myInfo) { // Determines the marker icon design 
 	   title: myTitle,
 	   icon: 'condominium.png' // Determines icon used for the marker.
 });
+
+    infoWindow = new google.maps.InfoWindow(); // Enables an infowindow to appear. The text is location-specific.  
+    google.maps.event.addListener (marker, 'click', function() { // The text is viewed once the marker is clicked. 
+    infowindow.setContent(myInfo);
+    infoWindow.open(map, this); // When a separate marker is clicked, the previous infowindow disappears.
+})
+}
 
 function drawInfoChart (map, marker, infoWindow) {	
         var data = google.visualization.arrayToDataTable([
